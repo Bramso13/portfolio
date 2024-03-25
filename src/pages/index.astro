@@ -105,7 +105,12 @@ import {experiences, projects, skills} from "../constants";
 				</svg>
 			</div>
 			<div class="flex w-full h-full">
-					<message-astro class="flex flex-col gap-10 px-20 w-full">
+					<form
+						name="contact"
+						action="/"
+						method="POST"
+						data-netlify="true"
+						class="flex flex-col gap-10 px-20 w-full">
 						<div class="flex items-center justify-start">
 							<label for="name" class="bg-violet-500 border-l-2 border-black text-xl">Name</label>
 							<input type="text" id="name" name="name" class="border-black border-b-2 w-2/4 fontt px-2 text-black"
@@ -122,35 +127,12 @@ import {experiences, projects, skills} from "../constants";
 								Tell me about your project
 							</textarea>
 						</div>
-						<button class="bg-black text-white py-2 px-4 w-1/6 self-start">Send</button>
-					</message-astro>
+						<button class="bg-black text-white py-2 px-4 w-1/6 self-start" type="submit">Send</button>
+					</form>
 			</div>
 		</section>
 	</main>
-	<script>
-		// Définir le comportement de notre nouveau type d'élément HTML.
-		class MessageA extends HTMLElement {
-			constructor() {
-				super();
 
-				const Button = this.querySelector('button');
-				const name = this.querySelector('input[name="name"]');
-				const email = this.querySelector('input[name="email"]');
-				const message = this.querySelector('textarea[name="message"]');
-
-				// À chaque fois que le bouton est cliqué, on met à jour le compte.
-				if(Button){
-					Button.addEventListener('click',  () => {
-
-						console.log('Message sent')
-					});
-				}
-			}
-		}
-
-		// Dites au navigateur d'utiliser notre classe AstroHeart pour les éléments <astro-heart>.
-		customElements.define('message-astro', MessageA);
-	</script>
 </Layout>
 
 
