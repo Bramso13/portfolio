@@ -4,7 +4,6 @@ import Card from '../components/Card.astro';
 import ProjectCard from "../components/ProjectCard.astro";
 import Experience from "../components/Experience.astro";
 import {experiences, projects, skills} from "../constants";
-import {Message, setMessage} from "../queries";
 
 ---
 
@@ -130,7 +129,6 @@ import {Message, setMessage} from "../queries";
 	</main>
 	<script>
 		// Définir le comportement de notre nouveau type d'élément HTML.
-		import {setMessage} from '../queries.js';
 		class MessageA extends HTMLElement {
 			constructor() {
 				super();
@@ -142,11 +140,7 @@ import {Message, setMessage} from "../queries";
 
 				// À chaque fois que le bouton est cliqué, on met à jour le compte.
 				Button.addEventListener('click',  () => {
-					setMessage({
-						name: name.value,
-						email: email.value,
-						message: message.value
-					});
+
 					console.log('Message sent')
 				});
 			}
