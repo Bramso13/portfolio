@@ -81,7 +81,7 @@ import {experiences, projects, skills} from "../constants";
 					<div class="w-1/12 h-full"></div>
 					<div class="border-black border-x-2 w-10/12 h-full">
 						{experiences.map((experience, index) => (
-							 <Experience id={index} title={experience.title} description={experience.description} date={experience.date}/>
+							 <Experience id={index+""} title={experience.title} description={experience.description} date={experience.date}/>
 							))
 						}
 					</div>
@@ -139,10 +139,12 @@ import {experiences, projects, skills} from "../constants";
 				const message = this.querySelector('textarea[name="message"]');
 
 				// À chaque fois que le bouton est cliqué, on met à jour le compte.
-				Button.addEventListener('click',  () => {
+				if(Button){
+					Button.addEventListener('click',  () => {
 
-					console.log('Message sent')
-				});
+						console.log('Message sent')
+					});
+				}
 			}
 		}
 
