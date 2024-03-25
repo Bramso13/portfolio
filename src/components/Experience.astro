@@ -1,0 +1,23 @@
+---
+interface Props {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+}
+const { id, title, description, date } = Astro.props;
+
+---
+<div class="flex items-center justify-center p-3 h-fit ">
+    <div class={"px-6 py-8 border-2 rounded fontt text-3xl h-full carde " + (id%2 === 0 ? "bg-violet-500 border-violet-600" : "bg-amber-500 border-amber-600")}>
+        {id+1}
+    </div>
+    <div class="flex flex-col p-4 w-full">
+        <div class="text-xl font-bold">{title}</div>
+        <div class="text-l">{description}</div>
+        <div class="text-sm text-gray-500">{date}</div>
+    </div>
+</div>
+<style>
+
+</style>

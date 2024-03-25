@@ -1,0 +1,48 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+	id: number
+}
+
+const { id, href, title, description } = Astro.props;
+
+---
+
+<div class={"link-card flex h-96 flex-col items-start justify-evenly bg-amber-400 border-amber-500 p-10 py-5 -z-10 "
+	+ (id%2===0 ? "odd" : "even")}>
+	<h2 class="h-card bg-violet-500 fontt">{description}</h2>
+	<img src={href} alt="Link card" />
+	<p class="text-4xl">{title}</p>
+</div>
+
+<style define:vars={{description}}>
+	.link-card {
+		border-radius: 20px;
+		border-width: 2px;
+		transform: rotate(-7deg);
+	}
+	.odd{
+		background-color: #9DDCFF;
+		border-color: #5AB5E8;
+		transform: rotate(7deg);
+	}
+	.even{
+		background-color: #FFC9F0;
+		border-color: #F384D4;
+		transform: rotate(-7deg);
+	}
+	.h-card {
+		position: absolute;
+		top: -1rem !important;
+	}
+	.h-card:nth-child(2) {
+		background-color: #9DDCFF;
+	}
+	.link-card img {
+		width: 20%;
+	}
+
+</style>
+

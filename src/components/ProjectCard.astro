@@ -1,0 +1,26 @@
+---
+
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+}
+import { Image } from 'astro:assets';
+
+const { image, title, description } = Astro.props;
+---
+
+<div class="border-2 border-black p-3 flex flex-col w-full bg-white cursor-pointer h-fit">
+    <div class="flex w-full h-3/4 bg-violet-500">
+        <Image src={image} alt={title} width="400" height="300"></Image>
+    </div>
+    <div class="flex items-center justify-between w-full h-fit bg-violet-200">
+        <div>
+            <h2 class="p-2 fontt">{title}</h2>
+        </div>
+        <div class="w-fit p-2 m-2 rounded-bl-full rounded-e-full bg-violet-500 border-2 border-violet-600">
+            <h2 class="text-nowrap">{description}</h2>
+        </div>
+    </div>
+
+</div>

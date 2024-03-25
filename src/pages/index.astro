@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import ProjectCard from "../components/ProjectCard.astro";
+import Experience from "../components/Experience.astro";
+import {experiences, projects, skills} from "../constants";
+import {Message, setMessage} from "../queries";
+
+---
+
+<Layout title="Brahim's Portfolio">
+	<main class="flex flex-col gap-20">
+		<section class="flex w-full h-96">
+			<div class="flex w-1/2 h-full items-end p-20">
+				<h1 class="text-6xl z-0">I <span class="drop-shadow-lg underline decoration-violet-500 ">code</span> top notch websites and applications.</h1>
+			</div>
+			<div class="flex flex-col items-start justify-end gap-1 p-20 w-1/2 h-full">
+				<h2 class="text-l">
+					Expert in web development and Python programming, with a focus on creating dynamic and user-friendly applications. Proven track record of delivering high-quality projects that blend innovative design with efficient functionality.
+				</h2>
+				<a href="#contact" class="py-4 px-8 bg-black text-white">Hire me</a>
+			</div>
+		</section>
+		<section class="flex flex-col w-full h-fit">
+			<div class="flex flex-col px-20">
+				<h2 class="w-fit text-xl bg-violet-500 fontt">
+					What I do ?
+				</h2>
+				<svg width="43" height="79" viewBox="0 0 43 79" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="m-2">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M24.0677 31.245C27.6855 28.1782 35.5456 23.0984 38.4252 29.7925C40.2569 34.0523 39.1283 40.5603 35.1615 43.3179C30.1896 46.7738 25.2687 42.0813 22.8583 37.9177C22.164 36.7193 21.5654 35.459 21.0362 34.1604C21.9906 33.1326 22.9967 32.153 24.0677 31.245ZM15.8232 0.219959C13.7845 10.7391 14.0436 22.5881 17.5758 32.9446C15.9927 34.838 14.6363 36.7515 13.5821 38.426C7.45848 48.1546 3.86839 61.0656 4.40642 72.5836C4.46564 73.8423 5.935 74.2517 6.82264 73.7182C6.36467 74.0718 5.90221 74.4199 5.43525 74.7624C4.59121 73.509 3.97073 72.1631 3.54962 70.6502C3.29261 69.7256 3.28551 68.671 2.9622 67.7824C2.76976 67.2531 2.3684 67.2665 2.23722 66.6612C2.19541 66.4681 1.91988 66.3723 1.8253 66.5894C1.56679 67.1838 1.05403 67.376 0.820422 67.9814C0.452008 68.9349 0.686158 70.6987 0.84303 71.6591C1.2337 74.051 2.25821 76.2547 3.64878 78.2221C4.22984 79.0437 5.29093 79.1136 6.10338 78.6275C8.09528 77.4363 9.9183 75.9623 11.6216 74.3914C13.0969 73.0299 14.861 71.5786 15.6324 69.6936C16.238 68.216 14.6245 66.8762 13.2816 67.7431C11.6428 68.8007 10.4765 70.5539 9.03657 71.8756C8.41932 72.4423 7.77574 72.9684 7.12233 73.4815C7.30251 73.2863 7.43075 73.0316 7.47203 72.7121C8.80521 62.3879 9.79463 52.54 14.7391 43.1418C15.9526 40.833 17.37 38.6187 18.985 36.5624C19.0803 36.7817 19.1669 37.0072 19.2656 37.2262C22.5231 44.4185 31.2548 52.0845 38.5375 44.646C43.7075 39.367 44.8261 25.5481 35.7713 23.4423C29.9859 22.0968 24.2407 25.8805 19.7532 30.523C18.7687 27.2862 18.1029 23.9249 17.5032 20.7107C16.252 14.0106 15.9561 7.09763 16.2502 0.296366C16.2616 0.0266818 15.8779 -0.063025 15.8232 0.219959Z" fill="black"/>
+				</svg>
+			</div>
+			<div>
+				<div class="flex px-20 gap-10 w-full max-w-full overflow-auto h-fit p-10">
+					{skills.map((skill, indexx) => (
+						<Card id={indexx} title={skill.title} description={skill.description} href={skill.href}/>
+					))}
+				</div>
+			</div>
+		</section>
+		<section class="flex h-fit w-full">
+			<div class="flex flex-col px-20 w-[30%]">
+				<h2 class="w-fit text-xl bg-violet-500 mb-3 fontt">
+					Featured Projects
+				</h2>
+				<svg width="49" height="66" viewBox="0 0 49 66" fill="none" xmlns="http://www.w3.org/2000/svg"
+					class="self-end">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M27.8067 17.1678C28.2758 12.4483 30.3953 3.33278 37.1187 6.14357C41.3965 7.93273 45.109 13.3958 44.174 18.1357C43.0019 24.0761 36.2025 24.1232 31.5755 22.8055C30.2433 22.4266 28.9369 21.9367 27.6538 21.371C27.6255 19.9686 27.6678 18.565 27.8067 17.1678ZM0.313837 0.594631C6.16014 9.57396 14.5828 17.9122 24.321 22.9022C24.499 25.3638 24.854 27.6823 25.2601 29.6189C27.6203 40.8694 34.0139 52.6467 42.407 60.553C43.3245 61.4167 44.6654 60.6897 44.9327 59.6891C44.8493 60.2617 44.7587 60.8334 44.6611 61.4042C43.1831 61.0898 41.8015 60.5536 40.4471 59.7587C39.6197 59.2726 38.8815 58.5194 38.0314 58.1053C37.5251 57.8586 37.2459 58.1472 36.7308 57.8032C36.5665 57.6934 36.3019 57.8161 36.3848 58.0379C36.6121 58.6449 36.3771 59.1395 36.63 59.7371C37.0279 60.6787 38.4223 61.7839 39.2026 62.3653C41.1461 63.8133 43.4145 64.6854 45.7817 65.1332C46.7705 65.3199 47.5819 64.6326 47.8282 63.7184C48.4321 61.4775 48.7181 59.1506 48.8506 56.8373C48.9648 54.833 49.2243 52.5634 48.4685 50.6721C47.8767 49.1889 45.7855 49.3472 45.4227 50.9039C44.9797 52.8034 45.3599 54.8745 45.2435 56.8256C45.1937 57.662 45.0967 58.4876 44.9836 59.3106C44.9775 59.0451 44.8926 58.7728 44.7002 58.5144C38.4821 50.1656 32.3481 42.3982 29.3699 32.2048C28.6374 29.7015 28.1171 27.1244 27.8489 24.5235C28.0699 24.6149 28.2888 24.7168 28.5119 24.8057C35.8532 27.7119 47.4592 27.1536 47.5242 16.7437C47.5714 9.35493 38.7699 -1.35713 30.7967 3.42318C25.7022 6.47726 24.2021 13.191 24.203 19.6478C21.2453 18.0052 18.4303 16.0516 15.7649 14.1577C10.2081 10.2107 5.19007 5.44668 0.67388 0.352786C0.494635 0.150966 0.156406 0.353218 0.313837 0.594631Z" fill="black"/>
+				</svg>
+			</div>
+			<div class="flex w-full h-full">
+				<div class="flex gap-10 px-20 w-full">
+					{projects.map((project, index) => (
+						<a href={project.link} class="flex flex-col w-full h-fit">
+							<ProjectCard title={project.title} description={project.description} image={project.img}/>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+		<section class="flex max-h-fit w-full">
+			<div class="flex flex-col px-20 w-[30%]">
+				<h2 class="w-fit text-xl bg-violet-500 mb-3 fontt">
+					Experience & Education
+				</h2>
+				<svg width="49" height="66" viewBox="0 0 49 66" fill="none" xmlns="http://www.w3.org/2000/svg"
+					 class="self-end">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M27.8067 17.1678C28.2758 12.4483 30.3953 3.33278 37.1187 6.14357C41.3965 7.93273 45.109 13.3958 44.174 18.1357C43.0019 24.0761 36.2025 24.1232 31.5755 22.8055C30.2433 22.4266 28.9369 21.9367 27.6538 21.371C27.6255 19.9686 27.6678 18.565 27.8067 17.1678ZM0.313837 0.594631C6.16014 9.57396 14.5828 17.9122 24.321 22.9022C24.499 25.3638 24.854 27.6823 25.2601 29.6189C27.6203 40.8694 34.0139 52.6467 42.407 60.553C43.3245 61.4167 44.6654 60.6897 44.9327 59.6891C44.8493 60.2617 44.7587 60.8334 44.6611 61.4042C43.1831 61.0898 41.8015 60.5536 40.4471 59.7587C39.6197 59.2726 38.8815 58.5194 38.0314 58.1053C37.5251 57.8586 37.2459 58.1472 36.7308 57.8032C36.5665 57.6934 36.3019 57.8161 36.3848 58.0379C36.6121 58.6449 36.3771 59.1395 36.63 59.7371C37.0279 60.6787 38.4223 61.7839 39.2026 62.3653C41.1461 63.8133 43.4145 64.6854 45.7817 65.1332C46.7705 65.3199 47.5819 64.6326 47.8282 63.7184C48.4321 61.4775 48.7181 59.1506 48.8506 56.8373C48.9648 54.833 49.2243 52.5634 48.4685 50.6721C47.8767 49.1889 45.7855 49.3472 45.4227 50.9039C44.9797 52.8034 45.3599 54.8745 45.2435 56.8256C45.1937 57.662 45.0967 58.4876 44.9836 59.3106C44.9775 59.0451 44.8926 58.7728 44.7002 58.5144C38.4821 50.1656 32.3481 42.3982 29.3699 32.2048C28.6374 29.7015 28.1171 27.1244 27.8489 24.5235C28.0699 24.6149 28.2888 24.7168 28.5119 24.8057C35.8532 27.7119 47.4592 27.1536 47.5242 16.7437C47.5714 9.35493 38.7699 -1.35713 30.7967 3.42318C25.7022 6.47726 24.2021 13.191 24.203 19.6478C21.2453 18.0052 18.4303 16.0516 15.7649 14.1577C10.2081 10.2107 5.19007 5.44668 0.67388 0.352786C0.494635 0.150966 0.156406 0.353218 0.313837 0.594631Z" fill="black"/>
+				</svg>
+				<h2 class="w-fit text-xl mb-3 fontt">
+					(The frame is not an svg...)
+				</h2>
+			</div>
+			<div class="flex flex-col w-full h-fit px-10 ">
+				<div class="flex w-full h-12 min-h-10">
+					<div class="border-black border-b-2 w-1/12 h-full"></div>
+					<div class="border-black border-x-2 border-b-2 w-10/12 h-full"></div>
+					<div class="border-black border-b-2 w-1/12 h-full"></div>
+				</div>
+				<div class="flex w-full h-fit">
+					<div class="w-1/12 h-full"></div>
+					<div class="border-black border-x-2 w-10/12 h-full">
+						{experiences.map((experience, index) => (
+							 <Experience id={index} title={experience.title} description={experience.description} date={experience.date}/>
+							))
+						}
+					</div>
+					<div class="w-1/12 h-full"></div>
+				</div>
+				<div class="flex w-full h-12 min-h-10">
+					<div class="border-black border-t-2 w-1/12 h-full"></div>
+					<div class="border-black border-x-2 border-t-2 w-10/12 h-full"></div>
+					<div class="border-black border-t-2 w-1/12 h-full"></div>
+				</div>
+			</div>
+		</section>
+		<section class="flex h-fit w-full mt-10" id="contact">
+			<div class="flex flex-col px-20 w-[20%]">
+				<h2 class="w-fit text-xl bg-violet-500 mb-3 fontt">
+					Contact
+				</h2>
+				<svg width="49" height="66" viewBox="0 0 49 66" fill="none" xmlns="http://www.w3.org/2000/svg"
+					 class="self-end">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M27.8067 17.1678C28.2758 12.4483 30.3953 3.33278 37.1187 6.14357C41.3965 7.93273 45.109 13.3958 44.174 18.1357C43.0019 24.0761 36.2025 24.1232 31.5755 22.8055C30.2433 22.4266 28.9369 21.9367 27.6538 21.371C27.6255 19.9686 27.6678 18.565 27.8067 17.1678ZM0.313837 0.594631C6.16014 9.57396 14.5828 17.9122 24.321 22.9022C24.499 25.3638 24.854 27.6823 25.2601 29.6189C27.6203 40.8694 34.0139 52.6467 42.407 60.553C43.3245 61.4167 44.6654 60.6897 44.9327 59.6891C44.8493 60.2617 44.7587 60.8334 44.6611 61.4042C43.1831 61.0898 41.8015 60.5536 40.4471 59.7587C39.6197 59.2726 38.8815 58.5194 38.0314 58.1053C37.5251 57.8586 37.2459 58.1472 36.7308 57.8032C36.5665 57.6934 36.3019 57.8161 36.3848 58.0379C36.6121 58.6449 36.3771 59.1395 36.63 59.7371C37.0279 60.6787 38.4223 61.7839 39.2026 62.3653C41.1461 63.8133 43.4145 64.6854 45.7817 65.1332C46.7705 65.3199 47.5819 64.6326 47.8282 63.7184C48.4321 61.4775 48.7181 59.1506 48.8506 56.8373C48.9648 54.833 49.2243 52.5634 48.4685 50.6721C47.8767 49.1889 45.7855 49.3472 45.4227 50.9039C44.9797 52.8034 45.3599 54.8745 45.2435 56.8256C45.1937 57.662 45.0967 58.4876 44.9836 59.3106C44.9775 59.0451 44.8926 58.7728 44.7002 58.5144C38.4821 50.1656 32.3481 42.3982 29.3699 32.2048C28.6374 29.7015 28.1171 27.1244 27.8489 24.5235C28.0699 24.6149 28.2888 24.7168 28.5119 24.8057C35.8532 27.7119 47.4592 27.1536 47.5242 16.7437C47.5714 9.35493 38.7699 -1.35713 30.7967 3.42318C25.7022 6.47726 24.2021 13.191 24.203 19.6478C21.2453 18.0052 18.4303 16.0516 15.7649 14.1577C10.2081 10.2107 5.19007 5.44668 0.67388 0.352786C0.494635 0.150966 0.156406 0.353218 0.313837 0.594631Z" fill="black"/>
+				</svg>
+			</div>
+			<div class="flex w-full h-full">
+					<message-astro class="flex flex-col gap-10 px-20 w-full">
+						<div class="flex items-center justify-start">
+							<label for="name" class="bg-violet-500 border-l-2 border-black text-xl">Name</label>
+							<input type="text" id="name" name="name" class="border-black border-b-2 w-2/4 fontt px-2 text-black"
+							placeholder="Brahim Belabbas-Bengraa"/>
+						</div>
+						<div class="flex items-center justify-start">
+							<label for="email" class="bg-yellow-300 border-l-2 border-black text-xl">Email</label>
+							<input type="email" id="email" name="email" class="border-black border-b-2 w-2/4 fontt px-2 text-black"
+							placeholder="brahim.belabbas.b@gmail.com"/>
+						</div>
+						<div class="flex items-center justify-start">
+							<label for="message" class="bg-blue-500 border-l-2 border-black text-xl">Message</label>
+							<textarea id="message" name="message" class="border-black border-b-2 w-2/4 fontt px-2 text-black">
+								Tell me about your project
+							</textarea>
+						</div>
+						<button class="bg-black text-white py-2 px-4 w-1/6 self-start">Send</button>
+					</message-astro>
+			</div>
+		</section>
+	</main>
+	<script>
+		// Définir le comportement de notre nouveau type d'élément HTML.
+		import {setMessage} from '../queries.js';
+		class MessageA extends HTMLElement {
+			constructor() {
+				super();
+
+				const Button = this.querySelector('button');
+				const name = this.querySelector('input[name="name"]');
+				const email = this.querySelector('input[name="email"]');
+				const message = this.querySelector('textarea[name="message"]');
+
+				// À chaque fois que le bouton est cliqué, on met à jour le compte.
+				Button.addEventListener('click',  () => {
+					setMessage({
+						name: name.value,
+						email: email.value,
+						message: message.value
+					});
+					console.log('Message sent')
+				});
+			}
+		}
+
+		// Dites au navigateur d'utiliser notre classe AstroHeart pour les éléments <astro-heart>.
+		customElements.define('message-astro', MessageA);
+	</script>
+</Layout>
+
+
