@@ -1,8 +1,12 @@
 export const experiences = [
     {
-        title: "Master Degree in Computer Science, University of Saint-Etienne, Machine Learning and Data Mining",
-        date: "2023",
-        description: "This was a 5 years degree in Computer Science that covered a wide range of subjects, including algorithms, data structures, databases, software engineering, and machine learning."
+        title: "Bablitoo, Next - React, Agency Management Web App",
+        date: "Mars - December 2023",
+        description: "I worked as a Full Stack Developer at Bablitoo, a startup. I developed a web app to manage the incubator's portfolio companies. I used React for the frontend and multiple techs for the backend."
+    },{
+        title: "LeagueCode, React - Python (Django), App to compete and train your computing skills using AI",
+        date: "September - Still in development",
+        description: "I worked as a Full Stack Developer at LeagueCode, a startup. I developed a web app to manage the incubator's portfolio companies. I used React for the frontend and multiple techs for the backend."
     },
     {
         title: "Stage at 1Kubator, Full Stack Developer",
